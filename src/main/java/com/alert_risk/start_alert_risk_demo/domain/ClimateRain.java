@@ -1,7 +1,12 @@
 package com.alert_risk.start_alert_risk_demo.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ClimateRain {
-    public int last_year;
-    public int normal;
-    public int forecast;
+    private int last_year;
+    private int normal;
+    private int forecast;
 }

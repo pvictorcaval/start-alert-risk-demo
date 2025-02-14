@@ -1,11 +1,15 @@
 package com.alert_risk.start_alert_risk_demo.domain;
 
+import lombok.Getter;
+import lombok.Setter;
 import java.util.List;
 
+@Getter
+@Setter
 public class ClimateRainResponse {
-    long cityId;
-    String cityName;
-    String state;
-    String country;
-    List<Data> data;
+    private long cityId;
+    private String cityName;
+    private String state;
+    private String country;
+    private List<Data> data;
 }
