@@ -4,6 +4,7 @@ import com.alert_risk.start_alert_risk_demo.configuration.AppConfigurationProper
 import com.alert_risk.start_alert_risk_demo.configuration.AppConfigurationEndpoint;
 import com.alert_risk.start_alert_risk_demo.domain.ClimateRainResponse;
 import com.alert_risk.start_alert_risk_demo.exception.BusinessException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Repository;
@@ -12,23 +13,19 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import java.util.Objects;
 
+@RequiredArgsConstructor
 @Repository
 public class ClimateRepository {
 
     private final RestTemplate restTemplate;
     private final AppConfigurationProperties properties;
 
-    public ClimateRepository(RestTemplate restTemplate, AppConfigurationProperties properties) {
-        this.restTemplate = restTemplate;
-        this.properties = properties;
-    }
-
     public ClimateRainResponse getClimateRainLocale(long city, String latitude, String longitude) {
         try {
-            UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromUriString(properties.getApiadvisorClimatempoUrl())
+            UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromUriString(properties.getApiAdvisorClimaTempoUrl())
                     .path(AppConfigurationEndpoint.ADVISOR_CLIMATEMPO_CLIMATERAIN_PATH)
                     .pathSegment(Long.toString(city))
-                    .queryParam("token", properties.getApiadvisorClimatempoToken());
+                    .queryParam("token", properties.getApiAdvisorClimaTempoToken());
 
 
             if (Objects.nonNull(latitude))

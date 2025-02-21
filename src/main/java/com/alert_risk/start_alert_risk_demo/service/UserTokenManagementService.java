@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserTokenManagementService {
 
-    @Autowired
     private UserTokenManagementRepository repository;
 
     public UserTokenManagementLocalesResponse getUserTokenManagementLocales() {
